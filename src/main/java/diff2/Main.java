@@ -40,10 +40,11 @@ public class Main extends Application {
         graphController = loader.getController();
 
         primaryStage.show();
+
+        doTheMath();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    private void doTheMath() {
         //Main main = new Main();
         h = (RIGHT - LEFT) / N;
         System.out.println(h);
@@ -78,6 +79,10 @@ public class Main extends Application {
         }
         System.out.println("result vector is");
         System.out.println(resVec);
+    }
+
+    public static void main(String[] args) {
+        launch(args);
 
     }
 
