@@ -1,17 +1,24 @@
+package diff2;
+
+import diff2.view.GraphController;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.la4j.Matrix;
 import org.la4j.Vector;
 import org.la4j.linear.GaussianSolver;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.matrix.functor.MatrixFunction;
-import org.la4j.operation.MatrixOperation;
 import org.la4j.vector.dense.BasicVector;
-import org.la4j.vector.functor.VectorFunction;
 
+import java.net.URL;
 import java.util.function.BiFunction;
 import java.util.function.DoubleFunction;
 import java.util.function.IntFunction;
 
-public class Main {
+public class Main extends Application {
     //example num 15
     private static final double LEFT = 0.0;
 //    private final double RIGHT = 0.5;
@@ -19,7 +26,24 @@ public class Main {
     private static final int N = 6;
     private static double h;
 
+    private GraphController graphController;
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        URL url = getClass().getResource("/diff2/view/graph.fxml");
+        loader.setLocation(url);
+        Parent root = loader.load();
+        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setOnCloseRequest( event -> System.exit(0));
+        primaryStage.setTitle("Graph");
+        graphController = loader.getController();
+
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
+        launch(args);
         //Main main = new Main();
         h = (RIGHT - LEFT) / N;
         System.out.println(h);
