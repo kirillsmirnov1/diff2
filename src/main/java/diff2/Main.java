@@ -23,7 +23,7 @@ public class Main extends Application {
     private static final double LEFT = 0.0;
 //    private final double RIGHT = 0.5;
     private static final double RIGHT = 2.0 * Math.PI;
-    private static final int N = 6;
+    private static final int N = 100;
     private static double h;
 
     private GraphController graphController;
@@ -79,6 +79,12 @@ public class Main extends Application {
         }
         System.out.println("result vector is");
         System.out.println(resVec);
+
+        graphController.addSeries("MID RECT", xVec, rectVec);
+        graphController.addSeries("TRAPEZIUM", xVec, trapezVec);
+        graphController.addSeries("SIMPSON", xVec, simpsonVec);
+        graphController.addSeries("THREE-EIGHTS", xVec, threeVec);
+        graphController.addSeries("TRUE", xVec, resVec);
     }
 
     public static void main(String[] args) {
