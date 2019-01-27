@@ -93,21 +93,22 @@ public class Main extends Application {
     }
 
     private static DoubleFunction<Double> resultFunc = (i) ->{
-        return Math.cos(2 * i);
+        //return Math.cos(2 * i);
+        return 1d/(160d*Math.PI) * (25 + 27*Math.cos(2*i));
     };
 
     static private DoubleFunction<Double> fX = (x) ->{
 //        return 1.0 + (Math.cos(x / 2 - 1.0) * 1.0 / x);
-        return Math.cos(2 * x);
+        //return Math.cos(2 * x);
+        return 1d/(16d*Math.PI) * (5 + 3*Math.cos(2*x));
     };
 
     private static IntFunction<Double> initialX = (x) ->
             LEFT + x * h;
 
     static private BiFunction<Double, Double, Double> ker = (x, t) ->
-//            Math.sin(x * t);
-//            x * t * t;
-        Math.sin(x) * Math.cos(t);
+        -1d/(4d*Math.PI * (Math.pow(Math.sin((x+t)/2d), 2) + 0.25d * Math.pow(Math.cos((x+t)/2d), 2)));
+        //Math.sin(x) * Math.cos(t);
 
     static private double elemVal(int i, int j, double hMultiplier){
         return  - h * hMultiplier * ker.apply(fX.apply(i), fX.apply(j));
