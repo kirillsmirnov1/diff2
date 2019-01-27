@@ -7,7 +7,7 @@ import org.la4j.Vector;
 
 public class GraphController {
     @FXML
-    LineChart lineChart;
+    public LineChart lineChart;
 
     public void addSeries(String seriesName, Vector xSeries, Vector ySeries){
         XYChart.Series series = new XYChart.Series();

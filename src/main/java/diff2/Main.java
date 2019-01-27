@@ -23,7 +23,7 @@ public class Main extends Application {
     private static final double LEFT = 0.0;
 //    private final double RIGHT = 0.5;
     private static final double RIGHT = 2.0 * Math.PI;
-    private static final int N = 100;
+    private static final int N = 1000;
     private static double h;
 
     private GraphController graphController;
@@ -38,6 +38,7 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest( event -> System.exit(0));
         primaryStage.setTitle("Graph");
         graphController = loader.getController();
+        graphController.lineChart.setCreateSymbols(false);
 
         primaryStage.show();
 
