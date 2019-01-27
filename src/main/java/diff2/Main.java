@@ -160,6 +160,8 @@ public class Main extends Application {
             else
                 val *= 3;
         }
+        if(i == j)
+            val += 1.0;
         return val;
     };
 
