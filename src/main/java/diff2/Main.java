@@ -47,28 +47,28 @@ public class Main extends Application {
     private void doTheMath() {
         //Main main = new Main();
         h = (RIGHT - LEFT) / N;
-        System.out.println(h);
-        System.out.println();
+//        System.out.println(h);
+//        System.out.println();
 
-        System.out.println("MID RECT");
+//        System.out.println("MID RECT");
         Vector rectVec = quadMethod(rectMatrInit);
-        System.out.println(rectVec);
-        System.out.println();
+//        System.out.println(rectVec);
+//        System.out.println();
 
-        System.out.println("TRAPEZIUM");
+//        System.out.println("TRAPEZIUM");
         Vector trapezVec = quadMethod(trapeziumMatrInit);
-        System.out.println(trapezVec);
-        System.out.println();
+//        System.out.println(trapezVec);
+//        System.out.println();
 
-        System.out.println("SIMPSON");
+//        System.out.println("SIMPSON");
         Vector simpsonVec = quadMethod(simpsonMatrInit);
-        System.out.println(simpsonVec);
-        System.out.println();
+//        System.out.println(simpsonVec);
+//        System.out.println();
 
-        System.out.println("THREE-EIGHTS");
+//        System.out.println("THREE-EIGHTS");
         Vector threeVec = quadMethod(threeEightsMatrInit);
-        System.out.println(threeVec);
-        System.out.println();
+//        System.out.println(threeVec);
+//        System.out.println();
 
         //print result vector from answer
         Vector resVec = new BasicVector(N + 1);
@@ -77,8 +77,8 @@ public class Main extends Application {
             resVec.set(i, resultFunc.apply(initialX.apply(i)));
             xVec.set(i, initialX.apply(i));
         }
-        System.out.println("result vector is");
-        System.out.println(resVec);
+//        System.out.println("result vector is");
+//        System.out.println(resVec);
 
         graphController.addSeries("MID RECT", xVec, rectVec);
         graphController.addSeries("TRAPEZIUM", xVec, trapezVec);
@@ -169,11 +169,11 @@ public class Main extends Application {
         resMatr.update(mf);
         Vector freeMembers = createFreeMembersColumn();
         GaussianSolver gaussianSolver = new GaussianSolver(resMatr);
-        System.out.println(resMatr);
+        //System.out.println(resMatr);
         try{
             return gaussianSolver.solve(freeMembers);
         }catch (IllegalArgumentException e){
-            System.out.println("determinant is " + resMatr.determinant());
+            //System.out.println("determinant is " + resMatr.determinant());
             freeMembers.setAll(0d);
             return freeMembers;
         }
