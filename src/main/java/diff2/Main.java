@@ -71,8 +71,10 @@ public class Main extends Application {
 
         //print result vector from answer
         Vector resVec = new BasicVector(N + 1);
+        Vector xVec = new BasicVector(N+1);
         for(int i = 0; i < resVec.length(); i++){
             resVec.set(i, resultFunc.apply(initialX.apply(i)));
+            xVec.set(i, initialX.apply(i));
         }
         System.out.println("result vector is");
         System.out.println(resVec);
